@@ -1,6 +1,6 @@
 # Transcriptomics-BrAPP
 
-An interactive **Shiny application for exploratory transcriptomics analysis**, including:
+A Shiny application for transcriptomics analysis, including:
 
 - Data upload and filtering  
 - Principal Component Analysis (PCA)  
@@ -49,3 +49,8 @@ Run the app
 ```r
 shiny::runApp()
 ```
+---
+
+### TODO
+- Port to Python web app
+- Implement other transcriptomics analyses
