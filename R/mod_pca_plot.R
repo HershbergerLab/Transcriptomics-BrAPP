@@ -145,12 +145,19 @@ mod_pca_plot_server <- function(id, expr_filt, pca, variance, phenotypes = NULL)
     
     output$scree_plot <- renderPlot({
       tibble(
-        PC = paste0("PC", seq_along(variance())),
+        PC = seq_along(variance()),
         Var = variance()
       ) |>
-        ggplot(aes(PC, Var)) +
+        ggplot(aes(x = PC, y = Var)) +
         geom_col() +
-        geom_line(aes(group = 1)) +
+        geom_line() +
+        scale_x_continuous(
+          breaks = seq_along(variance())
+        ) +
+        labs(
+          x = "Principal Component",
+          y = "Proportion of Variance Explained"
+        ) +
         theme_minimal()
     })
   })
